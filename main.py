@@ -65,7 +65,6 @@ def main():
         """
         )
 
-        # Reset button
         if st.button("Reset"):
             st.session_state.clear()
 

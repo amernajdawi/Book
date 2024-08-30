@@ -1,0 +1,9 @@
+{
+    "cSpell.words": [
+        "Ollama"
+    ],
+    "python.analysis.extraPaths": [
+        "./src/insights",
+        "./src/insights"
+    ]
+}

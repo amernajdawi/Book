@@ -1,0 +1,87 @@
+{
+    "build": {
+        "dockerfile": "${localWorkspaceFolder}/Dockerfile",
+        "context": "${localWorkspaceFolder}/",
+        "args": {
+
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "ms-toolsai.jupyter",
+                "waderyan.gitblame",
+                "mhutchie.git-graph",
+                "yzhang.markdown-all-in-one",
+                "njpwerner.autodocstring",
+                "bungcip.better-toml",
+                "streetsidesoftware.code-spell-checker",
+                "christian-kohler.path-intellisense",
+                "ccimage.jsonviewer",
+                "esbenp.prettier-vscode",
+                "shd101wyy.markdown-preview-enhanced",
+                "ms-azuretools.vscode-docker",
+                "ms-python.pylint",
+                "mechatroner.rainbow-csv",
+                "DavidAnson.vscode-markdownlint",
+                "fnando.linter",
+                "oderwat.indent-rainbow"
+            ],
+            "settings": {
+                // linting and intellisense
+                "python.languageServer": "Pylance",
+                // "python.linting.enabled": true,
+                // "python.linting.pylintEnabled": true,
+                // "python.linting.pylintCategorySeverity.refactor": "Information",
+                // editor
+                "editor.guides.bracketPairs": true, // rainbow bracktes
+                "editor.bracketPairColorization.enabled": true,
+                "editor.formatOnSave": false,
+                "editor.defaultFormatter": null,
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": "always"
+                    }
+                },
+                "[json]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode",
+                    "editor.formatOnSave": true,
+                    "prettier.tabWidth": 4,
+                    "prettier.useTabs": false
+                },
+                // formatting
+                "python.formatting.provider": "none",
+                "black-formatter.args": [
+                    "--line-length",
+                    "100"
+                ],
+                // testing
+                "python.testing.unittestEnabled": false,
+                "python.testing.pytestEnabled": true,
+                "python.testing.pytestArgs": [
+                    "-r P", // print stdout from good tests
+                    "" // set to current project for less tests
+                ],
+
+                // extenstions und utility
+                "cSpell.diagnosticLevel": "Hint",
+                "isort.args": [
+                    "--profile",
+                    "black"
+                ],
+                "notebook.lineNumbers": "on"
+            }
+        }
+    },
+    "runArgs": [
+        "--init",
+        "--ipc=host",
+        
+    ],
+    "postAttachCommand": "echo  postAttachCommand; git config --global core.filemode false;  echo finished startup of devcontainer"
+}

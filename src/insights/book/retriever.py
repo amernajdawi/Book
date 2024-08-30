@@ -3,7 +3,7 @@ from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnablePassthrough
 from langchain_openai import ChatOpenAI
 
-from config import OPENAI_API_KEY
+from config import OPENAI_API_KEY, OPENAI_MODEL
 
 
 def setup_retriever(db):
@@ -37,8 +37,9 @@ def setup_qa_chain(retriever):
 
     Returns:
     A configured QA chain that can answer questions based on the retrieved context.
+    Make as concise and short as possible
     """
-    llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.2, api_key=OPENAI_API_KEY)
+    llm = ChatOpenAI(model_name=OPENAI_MODEL, temperature=0.1, api_key=OPENAI_API_KEY)
 
     template = """Act as a senior librarian. Use the following context from book reviews to answer the question. If the answer isn't directly in the context, infer a response. If unsure, explain what you know based on the context and make sure to give a clear and simple answer.
 

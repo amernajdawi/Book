@@ -65,6 +65,10 @@ def main():
         """
         )
 
+        # Reset button
+        if st.button("Reset"):
+            st.session_state.clear()
+
     with col2:
         st.markdown("### Chat with BookBuddy")
 
